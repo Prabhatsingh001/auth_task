@@ -1,3 +1,27 @@
+"""
+Django settings for Auth project.
+
+This module contains the core configuration for the Auth project including:
+- Security settings (SECRET_KEY, DEBUG mode from environment variables)
+- Application definitions (Django apps, Tailwind, core app)
+- Middleware configuration
+- Database settings (SQLite)
+- Static/Media file handling
+- Authentication and password validation
+- Internationalization
+- Tailwind CSS configuration
+
+Environment variables required:
+    SECRET_KEY: str
+        Django secret key for cryptographic signing
+    DEBUG: bool, optional
+        Debug mode flag (default: False)
+        When True, enables django_browser_reload
+
+For more information on Django settings, see:
+https://docs.djangoproject.com/en/5.2/topics/settings/
+"""
+
 from pathlib import Path
 from decouple import config
 import os

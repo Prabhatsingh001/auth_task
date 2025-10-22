@@ -1,9 +1,13 @@
 """
 WSGI config for Auth project.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+This module contains the WSGI application configuration for the Auth project.
+It exposes the WSGI callable as a module-level variable named 'application'.
 
-For more information on this file, see
+The application variable is used by WSGI servers (like Gunicorn, uWSGI) to
+serve the Django application in a production environment.
+
+For more information on this file, see:
 https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
 

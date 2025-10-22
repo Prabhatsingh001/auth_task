@@ -1,7 +1,8 @@
 """
 ASGI config for Auth project.
 
-It exposes the ASGI callable as a module-level variable named ``application``.
+This module contains the ASGI application configuration for the Auth project.
+It exposes the ASGI callable as a module-level variable named 'application'.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
