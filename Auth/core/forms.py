@@ -11,7 +11,7 @@ class SignUpForm(UserCreationForm):
     last_name = forms.CharField(max_length=30)
 
     # Profile fields
-    profile_pricture = forms.ImageField(required=False)
+    profile_picture = forms.ImageField(required=False)
     is_doctor = forms.BooleanField(required=False)
     address_line1 = forms.CharField(max_length=255)
     city = forms.CharField(max_length=100)
@@ -23,7 +23,7 @@ class SignUpForm(UserCreationForm):
         fields = [
             "first_name", "last_name", "username",
             "email", "password1", "password2",
-            "profile_pricture", "is_doctor",
+            "profile_picture", "is_doctor",
             "address_line1", "city", "state", "pincode",
         ]
 
@@ -31,7 +31,7 @@ class SignUpForm(UserCreationForm):
         user = super().save(commit=commit)
         UserProfile.objects.create(
             user=user,
-            profile_pricture=self.cleaned_data.get("profile_pricture"),
+            profile_picture=self.cleaned_data.get("profile_picture"),
             is_doctor=self.cleaned_data.get("is_doctor"),
             address_line1=self.cleaned_data.get("address_line1"),
             city=self.cleaned_data.get("city"),
