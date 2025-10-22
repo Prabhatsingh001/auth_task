@@ -1,0 +1,62 @@
+{% load static %}
+<main class="p-6 bg-gray-100 rounded-lg shadow-md m-2">
+    <div class="flex flex-col items-center mb-6">
+        {% if user.userprofile.profile_picture %}
+        <img src="{{user.userprofile.profile_picture.url}}" alt="user image" class="w-24 h-24 rounded-full mb-4">
+        {% else %}
+            <img src="{% static 'profile_image.png' %}" alt="default profile picture" class="w-24 h-24 rounded-full mb-4">
+        {% endif %}
+        <img src="" alt="">
+        <h1 class="text-2xl font-bold mb-2">Welcome, Dr. <span class="capitalize">{{ user.first_name }}</span> {{user.last_name}}!</h1>
+        <p class="text-xl font-semibold italic text-gray-300">{{ user.email }}</p>
+        <p class="text-sm italic text-gray-300 italic ">@{{user.username}}</p>
+    </div>
+
+    <div>
+        <h2 class="text-lg font-semibold mt-4 mb-2">Your Upcoming Appointments</h2>
+        <ul class="list-disc list-inside">
+            {% for appointment in user.doctor_appointments.all %}
+                <li class="mb-1">
+                    <span class="font-medium">{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</span> -
+                    <span class="text-gray-600">{{ appointment.date }} at {{ appointment.time }}</span>
+                </li>
+            {% empty %}
+                <li>No upcoming appointments.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+<footer class="bg-gray-900 text-gray-200 py-12 mt-12 rounded-md shadow-md backdrop-blur-md bg-opacity-50">
+  <div class="container mx-auto px-4 md:flex md:justify-between md:items-start space-y-8 md:space-y-0">
+    
+    <!-- Address Section -->
+    <div class="md:w-1/2">
+      <h3 class="text-xl font-bold mb-4">Address</h3>
+      <p class="mb-1">{{ user.userprofile.address_line1 }}</p>
+      <p class="mb-1">City: {{ user.userprofile.city }}</p>
+      <p class="mb-1">State: {{ user.userprofile.state }}</p>
+      <p class="mb-1">Zip Code: {{ user.userprofile.pincode }}</p>
+    </div>
+    
+    <!-- Contact Section -->
+    <div class="md:w-1/2 mt-6 md:mt-0">
+      <h3 class="text-xl font-bold mb-4">Contact</h3>
+      <p class="mb-2">Email: {{ user.email }}</p>
+      <p class="mb-2">Phone: 95892XXXXX </p>
+
+      <!-- Social Icons (Placeholder) -->
+      <div class="flex space-x-4 mt-4">
+        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400 text-sm">
+    &copy; 2025 Company. All rights reserved.
+  </div>
+</footer>
+</main>

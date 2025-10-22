@@ -1,0 +1,32 @@
+{% load static %}
+<main class="p-6 bg-gray-100 rounded-lg shadow-md m-2">
+    <div class="flex flex-col items-center mb-6">
+        {% if user.userprofile.profile_picture %}
+        <img src="{{user.userprofile.profile_picture.url}}" alt="user image" class="w-24 h-24 rounded-full mb-4">
+        {% else %}
+            <img src="{% static 'profile_image.png' %}" alt="default profile picture" class="w-24 h-24 rounded-full mb-4">
+        {% endif %}
+        <img src="" alt="">
+        <h1 class="text-2xl font-bold mb-2">Welcome, User <span class="capitalize">{{ user.first_name }}</span> {{user.last_name}}!</h1>
+        <p class="text-xl font-semibold italic text-gray-300">{{ user.email }}</p>
+        <p class="text-sm italic text-gray-300 italic ">@{{user.username}}</p>
+    </div>
+
+    <div>
+        <h2 class="text-xl font-bold mb-4">Your Profile Information</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <p class="mb-2"><span class="font-semibold">Full Name:</span> <span class="capitalize">{{ user.first_name }} {{ user.last_name }}</span></p>
+            <p class="mb-2"><span class="font-semibold">Username:</span> {{ user.username }}</p>
+            <p class="mb-2"><span class="font-semibold">Email:</span> {{ user.email }}</p>
+            <p class="mb-2"><span class="font-semibold">Date of Birth:</span> {{ user.userprofile.date_of_birth }}</p>
+            <p class="mb-2"><span class="font-semibold">Gender:</span> {{ user.userprofile.gender }}</p>
+            <p class="mb-2"><span class="font-semibold">Contact Number:</span> 95892XXXXX </p>
+            <p class="mb-2"><span class="font-semibold">Address:</span> {{ user.userprofile.address_line1 }}, {{ user.userprofile.city }}, {{ user.userprofile.state }}, {{ user.userprofile.pincode }}</p>
+    </div>
+
+<footer class="bg-gray-900 text-gray-200 py-12 mt-12 rounded-md shadow-md backdrop-blur-md bg-opacity-50">
+  <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400 text-sm">
+    &copy; 2025 Company. All rights reserved.
+  </div>
+</footer>
+</main>
