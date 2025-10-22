@@ -32,6 +32,10 @@ Quick start
    SECRET_KEY=your-secret-key
    DEBUG=True
    ```
+- for `development` use this secret key but dont push this in production
+   ```text
+   django-insecure-u3fs$1*oe8$_ae30h7w!^gk1kaiwqq6@m(!l7a)34mhryd#+sx
+   ```
 
 4. Run migrations (creates necessary tables):
 
@@ -106,5 +110,3 @@ Development checklist
 - [ ] Start Django server
 
 License
-
-This project contains example code and UI for learning purposes.
