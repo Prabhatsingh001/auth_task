@@ -18,11 +18,12 @@ Usage:
 """
 
 from django.urls import path
-from .views import login_view, signup_view, dashboard_view, logout_view
+from .views import login_view, signup_view, dashboard_view, logout_view, LogoutView
 
 urlpatterns = [
     path("signup/", signup_view, name="signup"),
     path("login/", login_view, name="login"),
     path("logout/", logout_view, name="logout"),
+    path("api/logout/", LogoutView.as_view(), name="api-logout"),
     path("dashboard/", dashboard_view, name="dashboard"),
 ]

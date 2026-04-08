@@ -9,3 +9,5 @@ logs/
 *.log
 dist/
 db.sqlite3
+media/
+staticfiles/
